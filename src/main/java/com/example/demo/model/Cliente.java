@@ -5,47 +5,50 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Entity
+@Table(name = "cliente")
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
-	@Column(name = "persona_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "persona_id", unique = true, nullable = false)
 	private int id;
 
-	@Column(name = "persona_nombre")
+	@Column(name = "persona_nombre", nullable = false)
 	@NotNull
 	private String nombre;
 
-	@Column(name = "persona_apellido_paterno")
+	@Column(name = "persona_apellido_paterno", nullable = false)
 	@NotEmpty
 	private String apellido_paterno;
 
-	@Column(name = "persona_apellido_materno")
+	@Column(name = "persona_apellido_materno", nullable = false)
 	@NotEmpty
 	private String apellido_materno;
 
-	@Column(name = "persona_dni")
+	@Column(name = "persona_dni", nullable = false)
 	@NotEmpty
 	private String dni;
-	
-	@Column(name = "persona_correo")
+
+	@Column(name = "persona_correo", nullable = false, unique = true)
 	@NotEmpty
 	@Email
 	private String correo;
 
-	@Column(name = "persona_celular")
+	@Column(name = "persona_celular", nullable = false, unique = true)
 	@NotEmpty
-	@Pattern(regexp="[0-9]{9}")
-	private int celular;
+	@Pattern(regexp = "[0-9]{9}")
+	private String celular;
 
 	public int getId() {
 		return id;
@@ -95,14 +98,12 @@ public class Cliente implements Serializable {
 		this.correo = correo;
 	}
 
-	public int getCelular() {
+	public String getCelular() {
 		return celular;
 	}
 
-	public void setCelular(int celular) {
+	public void setCelular(String celular) {
 		this.celular = celular;
 	}
 
-	
-	
 }
