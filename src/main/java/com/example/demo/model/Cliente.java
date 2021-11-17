@@ -50,6 +50,7 @@ public class Cliente implements Serializable {
 	@Pattern(regexp = "[0-9]{9}")
 	private String celular;
 
+	
 	public int getId() {
 		return id;
 	}

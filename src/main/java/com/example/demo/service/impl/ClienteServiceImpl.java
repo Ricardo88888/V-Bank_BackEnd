@@ -11,11 +11,15 @@ import com.example.demo.service.IClienteService;
 
 @Service
 public class ClienteServiceImpl extends GenericServiceImpl<Cliente, Integer> implements IClienteService {
+	
 	@Autowired
 	private IClienteDao clienteDao;
-
+	
+	
 	@Override
 	public JpaRepository<Cliente, Integer> getDao() {
 		return clienteDao;
 	}
+
+	
 }
