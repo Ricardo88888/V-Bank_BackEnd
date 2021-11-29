@@ -12,7 +12,7 @@ import com.example.service.SendMailService;
 
 @RestController
 @RequestMapping( path = "/sendMail/")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200") 
 public class SendMailController {
 
 	@Autowired
