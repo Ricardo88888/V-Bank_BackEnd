@@ -1,4 +1,4 @@
-package com.example.demo.rest;
+package com.example.rest;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Cliente;
-import com.example.demo.service.IClienteService;
-import com.example.demo.util.Constantes;
+import com.example.model.Cliente;
+import com.example.service.IClienteService;
+import com.example.util.Constantes;
 
 @RestController
 @RequestMapping("/wscliente")
@@ -33,7 +33,7 @@ public class RestClienteController {
 
 	@GetMapping
 	public List<Cliente> listarCliente() {
-		return clienteService.getAll();
+		return clienteService.listaTodos();
 	}
 
 	@GetMapping(value = "/{id}")
@@ -46,7 +46,7 @@ public class RestClienteController {
 	public ResponseEntity<Map<String, Object>> insertaModalidad(@RequestBody Cliente obj) {
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			Cliente objCliente = clienteService.save(obj);
+			Cliente objCliente = clienteService.insertaActualizaCliente(obj);
 			if (objCliente == null) {
 				salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
 			} else {

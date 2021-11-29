@@ -1,4 +1,4 @@
-package com.example.demo.rest;
+package com.example.rest;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Cliente;
-import com.example.demo.service.IClienteService;
-import com.example.demo.util.Constantes;
+import com.example.model.Cliente;
+import com.example.service.IClienteService;
+import com.example.util.Constantes;
 
 @RequestMapping("/crudCliente")
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST })
